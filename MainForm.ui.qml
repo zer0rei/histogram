@@ -2,17 +2,15 @@ import QtQuick 2.7
 
 Rectangle {
     id: container
-
-    width: 640
-    height: 480
+    anchors.fill: parent
     color: "#00000000"
     property alias aboutText: aboutText
     opacity: 1
 
     Rectangle {
         id: mainSpace
-        x: 192
-        y: 72
+        anchors.left: imagelistSpace.right
+        anchors.top: toolSpace.bottom
         width: parent.width * 0.7
         height: parent.height * 0.85
         color: "#4e6071"
@@ -22,6 +20,16 @@ Rectangle {
             id: mainMouseArea
             width: parent.width
             height: parent.height * 0.95
+
+            Image {
+                id: loadImage
+                width: parent.width * 0.8
+                height: width
+                opacity: 0.7
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.horizontalCenter: parent.horizontalCenter
+                source: "images/load_image.svg"
+            }
         }
 
         Rectangle {
@@ -48,11 +56,13 @@ Rectangle {
                     height: parent.height
                     color: "#393939"
                     text: qsTr("?")
+                    font.bold: false
+                    font.pointSize: 20
+                    renderType: Text.NativeRendering
                     opacity: 1
                     fontSizeMode: Text.Fit
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
-                    font.pixelSize: 15
                 }
             }
         }
@@ -60,8 +70,7 @@ Rectangle {
 
     Rectangle {
         id: imagelistSpace
-        x: 0
-        y: 72
+        anchors.top: logoSpace.bottom
         width: parent.width * 0.3
         height: parent.height * 0.85
         color: "#111620"
@@ -77,12 +86,13 @@ Rectangle {
 
         Text {
             id: imagelistText
-            x: parent.width * 0.1
+            x: parent.width * 0.05
             y: 0
-            width: parent.width * 0.8
+            width: parent.width * 0.9
             height: parent.height * 0.05
             color: "#a9a9a9"
             text: qsTr("Images")
+            opacity: 0.6
             verticalAlignment: Text.AlignVCenter
             renderType: Text.NativeRendering
             fontSizeMode: Text.Fit
@@ -92,9 +102,8 @@ Rectangle {
     }
 
     Rectangle {
-        id: menuSpace
-        x: 192
-        y: 0
+        id: toolSpace
+        anchors.left: logoSpace.right
         width: parent.width * 0.7
         height: parent.height * 0.15
         color: "#445a6f"
