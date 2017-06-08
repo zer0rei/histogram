@@ -10,6 +10,22 @@ Window {
     title: qsTr("Histogram")
 
     MainForm {
-        anchors.fill: parent
+        // about Mouse Signals
+        aboutMouseArea.onEntered: {
+            about.opacity = 1
+        }
+        aboutMouseArea.onExited: {
+            about.opacity = 0.7
+        }
+        aboutMouseArea.onPressed: {
+            about.opacity = 0.5
+        }
+        aboutMouseArea.onReleased: {
+            if (aboutMouseArea.containsMouse)
+                about.opacity = 1
+            else
+                about.opacity = 0.7
+        }
+
     }
 }
