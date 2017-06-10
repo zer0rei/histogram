@@ -4,6 +4,8 @@ Rectangle {
     id: container
     anchors.fill: parent
     color: "#00000000"
+    property alias loadMouseArea: loadMouseArea
+    property alias loadIcon: loadIcon
     property alias aboutMouseArea: aboutMouseArea
     property alias about: about
     property alias mainMouseArea: mainMouseArea
@@ -15,7 +17,7 @@ Rectangle {
         x: 0
         y: 0
         width: parent.width * 0.3
-        height: parent.height * 0.15
+        height: 70
         color: "#15283b"
         clip: true
 
@@ -45,16 +47,50 @@ Rectangle {
         id: toolSpace
         anchors.left: logoSpace.right
         width: parent.width * 0.7
-        height: parent.height * 0.15
+        height: 70
         color: "#445a6f"
         clip: true
+
+        Row {
+            id: toolRow
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.verticalCenter: parent.verticalCenter
+            width: 200
+            height: parent.height * 0.7
+
+            ToolIcon {
+                id: loadIcon
+                name: "load"
+
+                MouseArea {
+                    id: loadMouseArea
+                    anchors.fill: parent
+                }
+            }
+
+            ToolIcon {
+                name: "tool2"
+            }
+
+            ToolIcon {
+                name: "tool3"
+            }
+
+            ToolIcon {
+                name: "tool4"
+            }
+
+            ToolIcon {
+                name: "tool5"
+            }
+        }
     }
 
     Rectangle {
         id: imagelistSpace
         anchors.top: logoSpace.bottom
         width: parent.width * 0.3
-        height: parent.height * 0.85
+        height: parent.height - 70
         color: "#111620"
         clip: true
 
@@ -80,7 +116,7 @@ Rectangle {
         anchors.left: imagelistSpace.right
         anchors.top: toolSpace.bottom
         width: parent.width * 0.7
-        height: parent.height * 0.85
+        height: parent.height - 70
         color: "#4e6071"
         clip: true
 
@@ -97,7 +133,7 @@ Rectangle {
                 id: loadImage
                 x: 67
                 y: 47
-                width: parent.width * 0.7
+                width: ((parent.width < parent.height) ? parent.width : parent.height) * 0.7
                 height: width
                 opacity: 0.7
                 anchors.verticalCenter: parent.verticalCenter
@@ -123,7 +159,7 @@ Rectangle {
 
             Rectangle {
                 id: about
-                x: parent.width - (1.5 * parent.height)
+                x: parent.width - (2 * parent.height)
                 width: parent.height
                 height: parent.height
                 color: "#a9a9a9"

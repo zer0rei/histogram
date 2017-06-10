@@ -3,5 +3,6 @@
         <file>main.qml</file>
         <file>MainForm.ui.qml</file>
         <file>images/load_image.svg</file>
+        <file>ToolIcon.qml</file>
     </qresource>
 </RCC>
