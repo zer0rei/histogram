@@ -4,5 +4,11 @@
         <file>MainForm.ui.qml</file>
         <file>images/load_image.svg</file>
         <file>ToolIcon.qml</file>
+        <file>ImageDialog.qml</file>
+        <file>AboutWindow.qml</file>
+        <file>AboutWindowForm.ui.qml</file>
+        <file>images/histogram_icon.svg</file>
+        <file>images/default_tool_icon.svg</file>
+        <file>images/load_tool_icon.svg</file>
     </qresource>
 </RCC>

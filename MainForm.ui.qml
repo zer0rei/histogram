@@ -54,13 +54,15 @@ Rectangle {
         Row {
             id: toolRow
             anchors.horizontalCenter: parent.horizontalCenter
-            anchors.verticalCenter: parent.verticalCenter
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 5
             width: 200
             height: parent.height * 0.7
 
             ToolIcon {
                 id: loadIcon
                 name: "load"
+                iconUrl: "images/load_tool_icon.svg"
 
                 MouseArea {
                     id: loadMouseArea

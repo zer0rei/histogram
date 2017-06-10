@@ -1,6 +1,5 @@
 import QtQuick 2.7
 import QtQuick.Window 2.2
-import QtQuick.Dialogs 1.0
 
 Window {
     visible: true
@@ -10,36 +9,36 @@ Window {
     height: 480
     title: qsTr("Histogram")
 
-    FileDialog {
-        id: imageDialog
-        title: "Choose a bitmap image"
-        folder: shortcuts.desktop
-        nameFilters: ["Image files (*.bmp)"]
-        selectedNameFilter: "Image files (*.bmp)"
-        onAccepted: {
-            console.log("You chose: " + imageDialog.fileUrls)
-        }
-        onRejected: {
-            console.log("Canceled")
-        }
+    ImageDialog {
+        id: myImageDialog
+    }
+
+    AboutWindow {
+        id: myAboutWindow
     }
 
     MainForm {
-        // load icon Mouse Signals
+        // loadIcon Mouse Signals
         loadMouseArea.onClicked: {
-            if (!imageDialog.visible) {
-                imageDialog.open();
+            if (!myImageDialog.isVisible) {
+                myImageDialog.isVisible = true
             }
         }
 
         // main Mouse Signals
         mainMouseArea.onClicked: {
-            if (!imageDialog.visible) {
-                imageDialog.open();
+            if (!myImageDialog.isVisible) {
+                myImageDialog.isVisible = true
             }
         }
 
         // about Mouse Signals
+        aboutMouseArea.onClicked: {
+            if (!myAboutWindow.visible) {
+                myAboutWindow.visible = true
+            }
+        }
+
         aboutMouseArea.onEntered: {
             about.opacity = 1
         }
