@@ -10,7 +10,7 @@ Item {
         id: fileDialog
         title: "Choose a bitmap image"
         folder: shortcuts.desktop
-        selectedNameFilter: "Image files (*.bmp, *.png, *.jpg, *.jpeg, *.tif. *.tiff)"
+        selectedNameFilter: "Image files (*.bmp, *.png, *.jpg, *.jpeg)"
         onAccepted: {
             imageDialog.fileChosen(fileDialog.fileUrl);
         }

@@ -26,7 +26,6 @@ Rectangle {
         font.pixelSize: 25
     }
 
-
     Text {
         id: subtitle
         anchors.horizontalCenter: title.horizontalCenter
@@ -36,7 +35,6 @@ Rectangle {
         font.family: "Arial"
         font.pixelSize: 11
     }
-
 
     Rectangle {
         id: codeBox
@@ -62,6 +60,14 @@ Rectangle {
         }
     }
 
+    Text {
+        id: text1
+        anchors.horizontalCenter: parent.horizontalCenter
+        y: 153
+        text: qsTr("GI3 Project - ENSA Marrakech")
+        anchors.horizontalCenterOffset: 0
+        font.pixelSize: 12
+    }
 
     Text {
         id: text2
@@ -80,7 +86,6 @@ Rectangle {
         font.pixelSize: 9
     }
 
-
     Text {
         id: footer
         anchors.horizontalCenter: parent.horizontalCenter
@@ -89,15 +94,4 @@ Rectangle {
         text: qsTr("© 2017 Elguaoussi Hamza. All rights reserved")
         font.pixelSize: 8
     }
-
-
-    Text {
-        id: text1
-        anchors.horizontalCenter: parent.horizontalCenter
-        y: 153
-        text: qsTr("GI3 Project - ENSA Marakech")
-        anchors.horizontalCenterOffset: 0
-        font.pixelSize: 12
-    }
-
 }
