@@ -4,7 +4,7 @@ Rectangle {
     id: container
     anchors.fill: parent
     color: "#00000000"
-    property alias loadMouseArea: loadMouseArea
+    property alias loadMouseArea: loadIcon.loadMouseArea
     property alias loadIcon: loadIcon
     property alias aboutMouseArea: aboutMouseArea
     property alias about: about
@@ -16,7 +16,7 @@ Rectangle {
         id: logoSpace
         x: 0
         y: 0
-        width: parent.width * 0.3
+        width: (parent.width < 800) ? parent.width * 0.3 : 240
         height: 70
         color: "#15283b"
         clip: true
@@ -46,7 +46,7 @@ Rectangle {
     Rectangle {
         id: toolSpace
         anchors.left: logoSpace.right
-        width: parent.width * 0.7
+        width: (parent.width < 800) ? (parent.width * 0.7) : (parent.width - 240)
         height: 70
         color: "#445a6f"
         clip: true
@@ -63,11 +63,6 @@ Rectangle {
                 id: loadIcon
                 name: "load"
                 iconUrl: "images/load_tool_icon.svg"
-
-                MouseArea {
-                    id: loadMouseArea
-                    anchors.fill: parent
-                }
             }
 
             ToolIcon {
@@ -91,7 +86,7 @@ Rectangle {
     Rectangle {
         id: imagelistSpace
         anchors.top: logoSpace.bottom
-        width: parent.width * 0.3
+        width: (parent.width < 800) ? parent.width * 0.3 : 240
         height: parent.height - 70
         color: "#111620"
         clip: true
@@ -111,13 +106,21 @@ Rectangle {
             horizontalAlignment: Text.AlignLeft
             font.pixelSize: 12
         }
+
+        ImageListView {
+            id: imageListView
+            anchors.top: imagelistText.bottom
+            anchors.left: parent.left
+            width: parent.width
+            height: parent.height * 0.95
+        }
     }
 
     Rectangle {
         id: mainSpace
         anchors.left: imagelistSpace.right
         anchors.top: toolSpace.bottom
-        width: parent.width * 0.7
+        width: (parent.width < 800) ? (parent.width * 0.7) : (parent.width - 240)
         height: parent.height - 70
         color: "#4e6071"
         clip: true

@@ -10,5 +10,9 @@
         <file>images/histogram_icon.svg</file>
         <file>images/default_tool_icon.svg</file>
         <file>images/load_tool_icon.svg</file>
+        <file>ImageListItem.qml</file>
+        <file>ImageListItemForm.ui.qml</file>
+        <file>images/delete_icon.svg</file>
+        <file>ImageListView.qml</file>
     </qresource>
 </RCC>
