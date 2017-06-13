@@ -10,6 +10,7 @@ Rectangle {
     property alias about: about
     property alias mainMouseArea: mainMouseArea
     property alias aboutText: aboutText
+    property alias imageListView: imageListView
     opacity: 1
 
     Rectangle {
@@ -113,6 +114,7 @@ Rectangle {
             anchors.left: parent.left
             width: parent.width
             height: parent.height * 0.95
+            clip: true
         }
     }
 

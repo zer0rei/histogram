@@ -2,6 +2,7 @@ import QtQuick 2.7
 import QtQuick.Window 2.2
 
 Window {
+    id: myMainWindow
     visible: true
     minimumWidth: 540
     minimumHeight: 400
@@ -11,6 +12,9 @@ Window {
 
     ImageDialog {
         id: myImageDialog
+        onFileChosen: {
+            fileChosen.connect(myMainForm.imageListView.addModelElement)
+        }
     }
 
     AboutWindow {
@@ -18,6 +22,8 @@ Window {
     }
 
     MainForm {
+        id: myMainForm
+
         // loadIcon Mouse Signals
         loadMouseArea.onClicked: {
             if (!myImageDialog.isVisible) {

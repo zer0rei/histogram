@@ -3,7 +3,6 @@
         <file>main.qml</file>
         <file>MainForm.ui.qml</file>
         <file>images/load_image.svg</file>
-        <file>ToolIcon.qml</file>
         <file>ImageDialog.qml</file>
         <file>AboutWindow.qml</file>
         <file>AboutWindowForm.ui.qml</file>
@@ -14,5 +13,6 @@
         <file>ImageListItemForm.ui.qml</file>
         <file>images/delete_icon.svg</file>
         <file>ImageListView.qml</file>
+        <file>ToolIcon.qml</file>
     </qresource>
 </RCC>

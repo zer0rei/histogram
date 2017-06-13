@@ -1,30 +1,31 @@
 import QtQuick 2.4
+import QtQuick.Dialogs 1.2
 
 ImageListItemForm {
-    property url imageUrl
-
     // get image name from url
     function basename(str)
     {
         return (str.slice(str.lastIndexOf("/")+1))
     }
 
-    imageName: basename(imageUrl.toString())
+    imageName: basename(imagePath.toString())
 
-    // delete image signal handlers
+    // item mouse area signal handlers
+    itemMouseArea.onClicked: {
+        imageListView.currentIndex = index;
+        mouse.accepted = false;
+    }
+
+    // delete image mouse area signal handlers
+    deleteMouseArea.onClicked:  {
+        imageListModel.remove(index)
+    }
+
     deleteMouseArea.onEntered: {
         deleteImage.visible = true
     }
+
     deleteMouseArea.onExited: {
         deleteImage.visible = false
-    }
-    deleteMouseArea.onPressed: {
-        deleteItem.opacity = 0.7
-    }
-    deleteMouseArea.onReleased: {
-        if (deleteMouseArea.containsMouse)
-            deleteItem.opacity = 1
-        else
-            deleteItem.opacity = 0.7
     }
 }
