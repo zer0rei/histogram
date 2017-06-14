@@ -138,11 +138,9 @@ Rectangle {
 
             Image {
                 id: loadImage
-                x: 67
-                y: 47
-                width: ((parent.width < parent.height) ? parent.width : parent.height) * 0.7
+                width: ((parent.width < parent.height) ? parent.width : parent.height) * 0.75
                 height: width
-                opacity: 0.7
+                opacity: 0.85
                 anchors.verticalCenter: parent.verticalCenter
                 anchors.horizontalCenter: parent.horizontalCenter
                 source: "images/load_image.svg"
