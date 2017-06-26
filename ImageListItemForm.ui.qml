@@ -8,6 +8,11 @@ Item {
     property alias deleteItem: deleteItem
     property alias imageName: itemName.text
 
+    MouseArea {
+        id: itemMouseArea
+        anchors.fill: parent
+    }
+
     Rectangle {
         id: imageContainer
         anchors.verticalCenter: parent.verticalCenter
@@ -25,6 +30,7 @@ Item {
             source: imagePath
             width: parent.width - 2
             height: parent.height - 2
+            fillMode: Image.PreserveAspectCrop
             anchors.centerIn: parent
             property bool rounded: true
             property bool adapt: false
@@ -95,11 +101,5 @@ Item {
             anchors.fill: parent
             hoverEnabled: true
         }
-    }
-
-    MouseArea {
-        id: itemMouseArea
-        anchors.fill: parent
-        propagateComposedEvents: true
     }
 }

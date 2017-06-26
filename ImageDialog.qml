@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QtQuick.Dialogs 1.0
+import QtQuick.Dialogs 1.2
 
 Item {
     id: imageDialog
@@ -10,12 +10,13 @@ Item {
         id: fileDialog
         title: "Choose a bitmap image"
         folder: shortcuts.desktop
-        selectedNameFilter: "Image files (*.bmp, *.png, *.jpg, *.jpeg)"
+        nameFilters: ["Image files (*.bmp *.png *.jpg *.jpeg)"]
+        selectedNameFilter: "Image files"
         onAccepted: {
-            imageDialog.fileChosen(fileDialog.fileUrl);
+            fileChosen(fileDialog.fileUrl);
         }
         onRejected: {
-            console.log("Canceled")
+            // don't do anything
         }
     }
 }

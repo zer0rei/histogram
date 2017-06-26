@@ -21,7 +21,7 @@ Item {
         id: iconText
         text: "icon"
         color: "white"
-        font.pointSize: 11
+        font.pixelSize: 10
         visible: true
         renderType: Text.QtRendering
         elide: Text.ElideNone

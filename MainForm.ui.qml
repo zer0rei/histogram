@@ -4,13 +4,14 @@ Rectangle {
     id: container
     anchors.fill: parent
     color: "#00000000"
-    property alias loadMouseArea: loadIcon.loadMouseArea
     property alias loadIcon: loadIcon
-    property alias aboutMouseArea: aboutMouseArea
+    property alias loadMouseArea: loadIcon.loadMouseArea
     property alias about: about
-    property alias mainMouseArea: mainMouseArea
     property alias aboutText: aboutText
+    property alias aboutMouseArea: aboutMouseArea
     property alias imageListView: imageListView
+    property alias mainMouseArea: mainContainer.mainMouseArea
+    property alias mainContainer: mainContainer
     opacity: 1
 
     Rectangle {
@@ -127,30 +128,12 @@ Rectangle {
         color: "#4e6071"
         clip: true
 
-        Rectangle {
+        MainSpace {
             id: mainContainer
             x: 0
             y: 0
             width: parent.width
             height: parent.height * 0.95
-            color: "#00000000"
-            border.color: "#00000000"
-
-            Image {
-                id: loadImage
-                width: ((parent.width < parent.height) ? parent.width : parent.height) * 0.75
-                height: width
-                opacity: 0.85
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.horizontalCenter: parent.horizontalCenter
-                source: "images/load_image.svg"
-
-                MouseArea {
-                    id: mainMouseArea
-                    width: parent.width
-                    height: parent.height
-                }
-            }
         }
 
         Rectangle {

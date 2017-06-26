@@ -14,5 +14,7 @@
         <file>images/delete_icon.svg</file>
         <file>ImageListView.qml</file>
         <file>ToolIcon.qml</file>
+        <file>MainSpace.qml</file>
+        <file>MainSpaceOutput.qml</file>
     </qresource>
 </RCC>

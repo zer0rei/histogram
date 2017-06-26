@@ -1,28 +1,44 @@
 import QtQuick 2.0
 
-ListView {
-    id: imageListView
+Item {
+    id: imageListViewContainer
+    signal currentFileChanged(url currentUrl)
+    signal modelEmptied(bool isEmpty)
 
-    delegate: ImageListItem {
-        width: parent.width
-        height: 55
-    }
+    ListView {
+        id: imageListView
+        anchors.fill: parent
 
-    highlight: Rectangle {
-        color: "#009EFA"
-    }
+        delegate: ImageListItem {
+            width: parent.width
+            height: 55
+        }
 
-    model: ListModel {
-        id: imageListModel
+        highlight: Rectangle {
+            color: "#009EFA"
+        }
+
+        model: ListModel {
+            id: imageListModel
+        }
+
+        onCurrentItemChanged: {
+            var currentUrl = imageListModel.get(currentIndex).imagePath;
+            currentFileChanged(currentUrl);
+        }
     }
 
     function addModelElement(imageUrl) {
-        var url = Qt.resolvedUrl(imageUrl)
+        var url = Qt.resolvedUrl(imageUrl);
         for (var i = 0; i < imageListModel.count; i++) {
-            if(imageListModel.get(i).imagePath === url)
-                return
+            if (imageListModel.get(i).imagePath === url)
+                return;
         }
-        imageListModel.insert(0, {"imagePath": url})
-        imageListView.currentIndex = 0
+
+        imageListModel.insert(0, {"imagePath": url});
+        imageListView.currentIndex = 0;
+        if (imageListModel.count === 1) {
+            modelEmptied(false);
+        }
     }
 }
