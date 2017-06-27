@@ -31,8 +31,10 @@ Item {
     function addModelElement(imageUrl) {
         var url = Qt.resolvedUrl(imageUrl);
         for (var i = 0; i < imageListModel.count; i++) {
-            if (imageListModel.get(i).imagePath === url)
+            if (imageListModel.get(i).imagePath === url) {
+                imageListView.currentIndex = i;
                 return;
+            }
         }
 
         imageListModel.insert(0, {"imagePath": url});
