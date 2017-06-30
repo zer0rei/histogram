@@ -10,6 +10,7 @@ Window {
     height: 480
     title: qsTr("Histogram")
     signal fileChanged(url myUrl)
+    signal manipulationChosen(string name)
 
     // Histogram Calculated Slot
     function onHistogramCalculated(url, isGrayscale, width, height) {
@@ -17,6 +18,13 @@ Window {
                                            imageManipulator.histogramRed,
                                            imageManipulator.histogramGreen,
                                            imageManipulator.histogramBlue);
+    }
+
+    function onManipCalculated(name, isGrayscale) {
+        myMainForm.mainContainer.changeHistogram(isGrayscale,
+                                           imageManipulator.manipHistogramRed,
+                                           imageManipulator.manipHistogramGreen,
+                                           imageManipulator.manipHistogramBlue);
     }
 
     ImageDialog {
@@ -47,6 +55,26 @@ Window {
             if (!myImageDialog.isVisible) {
                 myImageDialog.isVisible = true;
             }
+        }
+
+        // raw Mouse Signals
+        rawMouseArea.onClicked: {
+            manipulationChosen('raw');
+        }
+
+        // negativeIcon Mouse Signals
+        negativeMouseArea.onClicked: {
+            manipulationChosen('negative');
+        }
+
+        // negativeIcon Mouse Signals
+        equalizeMouseArea.onClicked: {
+            manipulationChosen('equalize');
+        }
+
+        // tresholdIcon Mouse Signals
+        tresholdMouseArea.onClicked: {
+            manipulationChosen('treshold');
         }
 
         // main Mouse Signals

@@ -42,6 +42,11 @@ Item {
         outputSpace.imageWidth = width;
         outputSpace.imageHeight = height;
 
+        // Histogram
+        changeHistogram(isGrayscale, histogramRed, histogramGreen, histogramBlue);
+    }
+
+    function changeHistogram(isGrayscale, histogramRed, histogramGreen, histogramBlue) {
         // Calculate max for chart yAxis
         var arr = histogramRed.concat(histogramGreen, histogramBlue);
         var maxArray = arr.reduce(function(a, b) {
@@ -67,6 +72,7 @@ Item {
                 outputSpace.blueHistogramSeries.append(i, histogramBlue[i]);
             }
         }
+
     }
 
     states: [

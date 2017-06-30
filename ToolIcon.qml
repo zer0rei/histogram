@@ -7,7 +7,7 @@ Item {
     width: parent.width / 5
     property alias iconUrl: icon.source
     property alias name: iconText.text
-    property alias loadMouseArea: loadMouseArea
+    property alias iconMouseArea: iconMouseArea
 
     Image {
         id: icon
@@ -44,7 +44,7 @@ Item {
     ]
 
     MouseArea {
-        id: loadMouseArea
+        id: iconMouseArea
         anchors.fill: parent
         onPressed: {iconContainer.state = "PRESSED"}
         onReleased: {iconContainer.state = ""}

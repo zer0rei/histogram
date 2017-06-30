@@ -16,5 +16,9 @@
         <file>ToolIcon.qml</file>
         <file>MainSpace.qml</file>
         <file>MainSpaceOutput.qml</file>
+        <file>images/negative_tool_icon.svg</file>
+        <file>images/raw_tool_icon.svg</file>
+        <file>images/equalize_tool_icon.svg</file>
+        <file>images/treshold_tool_icon.svg</file>
     </qresource>
 </RCC>

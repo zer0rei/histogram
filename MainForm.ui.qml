@@ -5,13 +5,22 @@ Rectangle {
     anchors.fill: parent
     color: "#00000000"
     property alias loadIcon: loadIcon
-    property alias loadMouseArea: loadIcon.loadMouseArea
+    property alias rawIcon: rawIcon
+    property alias rawMouseArea: rawIcon.iconMouseArea
+    property alias negativeIcon: negativeIcon
+    property alias negativeMouseArea: negativeIcon.iconMouseArea
+    property alias equalizeIcon: equalizeIcon
+    property alias equalizeMouseArea: equalizeIcon.iconMouseArea
+    property alias tresholdIcon: tresholdIcon
+    property alias tresholdMouseArea: tresholdIcon.iconMouseArea
+    property alias loadMouseArea: loadIcon.iconMouseArea
     property alias about: about
     property alias aboutText: aboutText
     property alias aboutMouseArea: aboutMouseArea
     property alias imageListView: imageListView
     property alias mainMouseArea: mainContainer.mainMouseArea
     property alias mainContainer: mainContainer
+
     opacity: 1
 
     Rectangle {
@@ -58,7 +67,7 @@ Rectangle {
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 5
-            width: 200
+            width: 250
             height: parent.height * 0.7
 
             ToolIcon {
@@ -68,19 +77,27 @@ Rectangle {
             }
 
             ToolIcon {
-                name: "tool2"
+                id: rawIcon
+                name: "raw"
+                iconUrl: "images/raw_tool_icon.svg"
             }
 
             ToolIcon {
-                name: "tool3"
+                id: negativeIcon
+                name: "negative"
+                iconUrl: "images/negative_tool_icon.svg"
             }
 
             ToolIcon {
-                name: "tool4"
+                id: equalizeIcon
+                name: "equalize"
+                iconUrl: "images/equalize_tool_icon.svg"
             }
 
             ToolIcon {
-                name: "tool5"
+                id: tresholdIcon
+                name: "treshold"
+                iconUrl: "images/treshold_tool_icon.svg"
             }
         }
     }
